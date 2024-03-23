@@ -13,6 +13,7 @@ app.use(cors());
 const YOUR_DOMAIN = 'https://stripe-reactapp-6f7eb0d918b3.herokuapp.com';
 
 
+const rootDir = path.join( __dirname);
 
 //Static file declaration
 app.use(express.static(path.join(__dirname, 'client/build')));
@@ -24,7 +25,7 @@ app.get('/api/pdf/:foldername/:filename', (req, res) => {
   const filename = req.params.filename;
   const foldername = req.params.foldername;
   
-  const filePath = path.join(__dirname,'PDF',foldername,filename); // Assuming PDF files are stored in the 'pdfs' directory
+  const filePath = path.join(rootDir,'PDF',foldername,filename); // Assuming PDF files are stored in the 'pdfs' directory
   console.log("here i am server filename is",filename,foldername)
   try{
       res.send(filePath);

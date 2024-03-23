@@ -18,15 +18,7 @@ const YOUR_DOMAIN = 'https://stripe-reactapp-6f7eb0d918b3.herokuapp.com';
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 
-// //build mode
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname+'/client/public/index.html'));
-// })
 
-//production mode
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  
    //api to load pdf
    app.get('/api/pdf/:foldername/:filename', (req, res) => {
     const filename = req.params.filename;
@@ -46,12 +38,20 @@ if(process.env.NODE_ENV === 'production') {
   
   });
 
+//production mode
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  
   app.get('*', (req, res) => {
     res.sendfile(path.join(__dirname='client/build/index.html'));
   })
 }
 
 
+//build mode
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/public/index.html'));
+})
 
  
   

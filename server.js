@@ -8,6 +8,10 @@ const fs = require('fs');
 // app.use(express.static('public'));
 const cors = require("cors")
 
+const YOUR_DOMAIN = 'https://stripe-reactapp-6f7eb0d918b3.herokuapp.com';
+
+app.use(express.json());
+app.use(cors());
 
 
 
@@ -36,16 +40,16 @@ app.use(express.static(path.join(__dirname, 'client/build')));
     }
 
   });
-  
+
 //production mode
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
   
 
 
-  // app.get('*', (req, res) => {
-  //   res.sendfile(path.join(__dirname = 'client/build/index.html'));
-  // })
+  app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = 'client/build/index.html'));
+  })
 }
 
 
@@ -54,10 +58,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/public/index.html'));
 })
 
-const YOUR_DOMAIN = 'https://stripe-reactapp-6f7eb0d918b3.herokuapp.com';
-
-app.use(express.json());
-app.use(cors());
 
 
 app.post('/create-checkout-session', async (req, res) => {

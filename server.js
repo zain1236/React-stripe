@@ -23,16 +23,26 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 //   res.sendFile(path.join(__dirname+'/client/public/index.html'));
 // })
 
+//production mode
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  
+  app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname='client/build/index.html'));
+  })
+}
+
+
+
   //api to load pdf
   app.get('/api/pdf/:foldername/:filename', (req, res) => {
     const filename = req.params.filename;
     const foldername = req.params.foldername;
     
-    const filePath = path.join(__dirname,'PDF',foldername ,filename); // Assuming PDF files are stored in the 'pdfs' directory
+    const filePath = path.join(__dirname=`PDF/${foldername}/${filename}`); // Assuming PDF files are stored in the 'pdfs' directory
     console.log("here i am server filename is",filename,foldername)
     try{
         res.sendFile(filePath);
-  
     }
     catch(error)
     {
@@ -42,19 +52,6 @@ app.use(express.static(path.join(__dirname, 'client/build')));
     }
   
   });
-  
-//production mode
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  
-  app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname = 'client/build/index.html'));
-  })
-}
-
-
-
-
   
 
 

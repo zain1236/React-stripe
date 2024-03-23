@@ -28,7 +28,7 @@ app.get('/api/pdf/:foldername/:filename', (req, res) => {
   const filePath = path.join(rootDir,'PDF',foldername,filename); // Assuming PDF files are stored in the 'pdfs' directory
   console.log("here i am server filename is",filename,foldername)
   try{
-      res.send(filePath);
+      res.sendFile(filePath);
   }
   catch(error)
   {

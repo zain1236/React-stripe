@@ -1,11 +1,41 @@
 import React from "react";
 
-// reactstrap components
 import { Button, Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import DemoNavbar from "../../components/Navbars/DemoNavbar.js";
-
+import axios from "axios";
 class BasicElements extends React.Component {
+  fetchPDF = async (filename) => {
+    try{
+      console.log("here I have filename", filename);
+      const response = await axios.get(`/api/pdf/grow/${filename}`,{responseType: 'blob'});
+      
+      const url = window.URL.createObjectURL(new Blob([response.data],{type: 'application/pdf'}))
+      window.open(url,'_blank')
+    }
+    catch(error){
+      console.log(error);
+    }
+  };
+
+  downloadPDF = async(filename)=>{
+    try{
+        const response = await axios({
+        url: `/api/pdf/grow/${filename}`,
+        method: 'GET',
+        responseType: 'blob'
+        })
+
+        const url = window.URL.createObjectURL(new Blob([response.data]))
+        const link = document.createElement('a')
+        link.href = url;
+        link.setAttribute('download',filename)
+        link.click()
+    }catch(error){
+      console.log(error);
+    }
+  }
+  
   render() {
     return (
       <>
@@ -30,20 +60,14 @@ class BasicElements extends React.Component {
               <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
                 <img className="w-100 pt-0" src={"/img/icon/cover_Grow.png"} />
                 <div className="mb-1 p-3  bg-white rounded minH">
-
-
-
                   <div className="text-center pt-2">
-                    <Link >
-                      <Button className=" rounded w-30 mr-5 text-center" color="dark" type="button">
+                      <Button onClick={() => this.fetchPDF('Grow.pdf')} className=" rounded w-30 mr-5 text-center" color="dark" type="button">
                         <i className="fa fa-eye " style={{ fontSize: "40px" }}></i>
                       </Button>
-                    </Link>
-                    <Link >
-                      <Button className="w-30  text-center" color="primary" type="button">
+
+                      <Button onClick={() => this.downloadPDF('Grow.pdf')} className="w-30  text-center" color="primary" type="button">
                         <i className="fa fa-arrow-circle-down " style={{ fontSize: "40px" }}></i>
                       </Button>
-                    </Link>
                   </div>
                 </div>
               </Col>
@@ -64,16 +88,13 @@ class BasicElements extends React.Component {
 
                   </div>
                   <div className="text-center pt-3 pb-1">
-                    <Link >
-                      <Button className=" rounded w-30 mr-5 text-center" color="dark" type="button">
+                      <Button onClick={() => this.fetchPDF('Scientifically Proven Behaviors that Lead to Success.pdf')} className=" rounded w-30 mr-5 text-center" color="dark" type="button">
                         <i className="fa fa-eye " style={{ fontSize: "40px" }}></i>
                       </Button>
-                    </Link>
-                    <Link >
-                      <Button className="w-30  text-center" color="primary" type="button">
+
+                      <Button onClick={() => this.downloadPDF('Scientifically Proven Behaviors that Lead to Success.pdf')} className="w-30  text-center" color="primary" type="button">
                         <i className="fa fa-arrow-circle-down " style={{ fontSize: "40px" }}></i>
                       </Button>
-                    </Link>
                   </div>
                 </div>
               </Col> <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
@@ -94,16 +115,13 @@ class BasicElements extends React.Component {
 
                   </div>
                   <div className="text-center pt-3 pb-1">
-                    <Link >
-                      <Button className=" rounded w-30 mr-5 text-center" color="dark" type="button">
+                      <Button onClick={() => this.fetchPDF('Day 31 to 50.pdf')} className=" rounded w-30 mr-5 text-center" color="dark" type="button">
                         <i className="fa fa-eye " style={{ fontSize: "40px" }}></i>
                       </Button>
-                    </Link>
-                    <Link >
-                      <Button className="w-30  text-center" color="primary" type="button">
+
+                      <Button onClick={() => this.downloadPDF('Day 31 to 50.pdf')} className="w-30  text-center" color="primary" type="button">
                         <i className="fa fa-arrow-circle-down " style={{ fontSize: "40px" }}></i>
                       </Button>
-                    </Link>
                   </div>
                 </div>
               </Col>
@@ -126,16 +144,13 @@ class BasicElements extends React.Component {
 
                   </div>
                   <div className="text-center pt-2">
-                    <Link >
-                      <Button className=" rounded w-30 mr-5 text-center" color="dark" type="button">
+                      <Button onClick={() => this.fetchPDF('100-Day Guide.pdf')} className=" rounded w-30 mr-5 text-center" color="dark" type="button">
                         <i className="fa fa-eye " style={{ fontSize: "40px" }}></i>
                       </Button>
-                    </Link>
-                    <Link >
-                      <Button className="w-30  text-center" color="primary" type="button">
+
+                      <Button onClick={() => this.downloadPDF('100-Day Guide.pdf')} className="w-30  text-center" color="primary" type="button">
                         <i className="fa fa-arrow-circle-down " style={{ fontSize: "40px" }}></i>
                       </Button>
-                    </Link>
                   </div>
                 </div>
               </Col>
@@ -156,16 +171,13 @@ class BasicElements extends React.Component {
 
                   </div>
                   <div className="text-center pt-2">
-                    <Link >
-                      <Button className=" rounded w-30 mr-5 text-center" color="dark" type="button">
+                      <Button onClick={() => this.fetchPDF('Helpful tools.pdf')} className=" rounded w-30 mr-5 text-center" color="dark" type="button">
                         <i className="fa fa-eye " style={{ fontSize: "40px" }}></i>
                       </Button>
-                    </Link>
-                    <Link >
-                      <Button className="w-30  text-center" color="primary" type="button">
+
+                      <Button onClick={() => this.downloadPDF('Helpful tools.pdf')} className="w-30  text-center" color="primary" type="button">
                         <i className="fa fa-arrow-circle-down " style={{ fontSize: "40px" }}></i>
                       </Button>
-                    </Link>
                   </div>
                 </div>
               </Col>

@@ -9,7 +9,7 @@ import Build from "./views/IndexSections/Build_page.js";
 import Grow from "./views/IndexSections/Grow_page.js";
 import Return_ from "./views/stripe/Return.js";
 import CheckoutForm from "./views/stripe/CheckoutForm.js";
-
+import VIEW_BUILD from "./views/IndexSections/view_build.js"
 function App() {
   return (
     <BrowserRouter>

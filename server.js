@@ -3,6 +3,8 @@ const stripe = require('stripe')('sk_test_51OrwZd2MYeojk7WwFskOWCv2QFOgWZ5tTStlP
 const path = require("path");
 const express = require('express');
 const app = express();
+const fs = require('fs');
+
 // app.use(express.static('public'));
 const cors = require("cors")
 
@@ -21,6 +23,26 @@ if(process.env.NODE_ENV === 'production') {
   })
 }
 
+//api to load pdf
+app.get('/api/pdf/:foldername/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const foldername = req.params.foldername;
+  
+  const filePath = path.join(__dirname,'PDF',foldername ,filename); // Assuming PDF files are stored in the 'pdfs' directory
+  console.log("here i am server filename is",filename,foldername)
+  try{
+      res.sendFile(filePath);
+
+  }
+  catch(error)
+  {
+    res.status(500).send({
+      message:"successfully",
+      data});
+  }
+ 
+});
+
 //build mode
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/public/index.html'));
@@ -30,6 +52,8 @@ const YOUR_DOMAIN = 'https://stripe-reactapp-6f7eb0d918b3.herokuapp.com';
 
 app.use(express.json());
 app.use(cors());
+
+
 app.post('/create-checkout-session', async (req, res) => {
   const PRICE = req.body.price;
   const TAGET=req.body.target;

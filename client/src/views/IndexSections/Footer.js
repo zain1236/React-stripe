@@ -54,7 +54,7 @@ class Navbars extends React.Component {
           <Navbar className="navbar-dark bg-dark pt-" expand="lg">
             <Container>
               <NavbarBrand  href="#pablo" onClick={(e) => e.preventDefault()}>
-              © 2024 CarteTheBlanche
+              ©️ 2024 CARTETHEBLANCHE.
               </NavbarBrand>
              
               <UncontrolledCollapse navbar toggler="#navbar-default">

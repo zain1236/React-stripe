@@ -58,6 +58,10 @@ app.get('/api/pdf/:foldername/:filename', (req, res) => {
 
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname = 'client/build/index.html'));
+})
+
 app.post('/create-checkout-session', async (req, res) => {
   const PRICE = req.body.price;
   const TAGET=req.body.target;

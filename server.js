@@ -7,29 +7,15 @@ const fs = require('fs');
 
 // app.use(express.static('public'));
 const cors = require("cors")
+app.use(express.json());
+app.use(cors());
 
 const YOUR_DOMAIN = 'https://stripe-reactapp-6f7eb0d918b3.herokuapp.com';
 
-app.use(express.json());
-app.use(cors());
 
 
 //Static file declaration
 app.use(express.static(path.join(__dirname, 'client/build')));
-
-
-
-
-// //production mode
-// if(process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, 'client/build')));
-  
-
-
-//   app.get('*', (req, res) => {
-//     res.sendfile(path.join(__dirname = 'client/build/index.html'));
-//   })
-// }
 
 
 // //build mode
@@ -37,30 +23,40 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 //   res.sendFile(path.join(__dirname+'/client/public/index.html'));
 // })
 
+//production mode
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  
+  // app.get('*', (req, res) => {
+  //   res.sendfile(path.join(__dirname = 'client/build/index.html'));
+  // })
+}
+
+
 
   //api to load pdf
-app.get('/api/pdf/:foldername/:filename', (req, res) => {
-  const filename = req.params.filename;
-  const foldername = req.params.foldername;
+  app.get('/api/pdf/:foldername/:filename', (req, res) => {
+    const filename = req.params.filename;
+    const foldername = req.params.foldername;
+    
+    const filePath = path.join(__dirname,'PDF',foldername ,filename); // Assuming PDF files are stored in the 'pdfs' directory
+    console.log("here i am server filename is",filename,foldername)
+    try{
+        res.sendFile(filePath);
   
-  const filePath = path.join(__dirname,'PDF',foldername ,filename); // Assuming PDF files are stored in the 'pdfs' directory
-  console.log("here i am server filename is",filename,foldername)
-  try{
-      res.sendFile(filePath);
+    }
+    catch(error)
+    {
+      res.status(500).send({
+        message:"successfully",
+        data});
+    }
+  
+  });
+  
 
-  }
-  catch(error)
-  {
-    res.status(500).send({
-      message:"successfully",
-      data});
-  }
 
-});
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname = 'client/build/index.html'));
-})
 
 app.post('/create-checkout-session', async (req, res) => {
   const PRICE = req.body.price;

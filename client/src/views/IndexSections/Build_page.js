@@ -10,7 +10,7 @@ class BasicElements extends React.Component {
   fetchPDF = async (filename) => {
     try{
       console.log("here I have filename", filename);
-      const response = await axios.get(`/api/pdf/build/${filename}`);
+      const response = await axios.get(`/api/pdf/build/${filename}`,{responseType: 'blob'});
       // console.log(response.data);      
       const url = window.URL.createObjectURL(new Blob([response.data],{type: 'application/pdf'}))
       window.open(url,'_blank')

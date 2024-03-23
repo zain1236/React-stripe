@@ -32,10 +32,10 @@ if(process.env.NODE_ENV === 'production') {
     const filename = req.params.filename;
     const foldername = req.params.foldername;
     
-    const filePath = path.join(__dirname=`PDF/${foldername}/${filename}`); // Assuming PDF files are stored in the 'pdfs' directory
+    const filePath = path.join(__dirname,'PDF',foldername,filename); // Assuming PDF files are stored in the 'pdfs' directory
     console.log("here i am server filename is",filename,foldername)
     try{
-        res.sendFile(filePath);
+        res.send(filePath);
     }
     catch(error)
     {
@@ -45,7 +45,7 @@ if(process.env.NODE_ENV === 'production') {
     }
   
   });
-  
+
   app.get('*', (req, res) => {
     res.sendfile(path.join(__dirname='client/build/index.html'));
   })

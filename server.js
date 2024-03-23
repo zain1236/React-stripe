@@ -16,15 +16,6 @@ const cors = require("cors")
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 
-//production mode
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname = 'client/build/index.html'));
-  })
-}
-
 //api to load pdf
 app.get('/api/pdf/:foldername/:filename', (req, res) => {
   const filename = req.params.filename;
@@ -44,6 +35,16 @@ app.get('/api/pdf/:foldername/:filename', (req, res) => {
   }
 
 });
+
+//production mode
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  
+  app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = 'client/build/index.html'));
+  })
+}
+
 
 //build mode
 app.get('*', (req, res) => {

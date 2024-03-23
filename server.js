@@ -15,33 +15,30 @@ const cors = require("cors")
 //Static file declaration
 app.use(express.static(path.join(__dirname, 'client/build')));
 
+//api to load pdf
+app.get('/api/pdf/:foldername/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const foldername = req.params.foldername;
+  
+  const filePath = path.join(__dirname,'PDF',foldername ,filename); // Assuming PDF files are stored in the 'pdfs' directory
+  console.log("here i am server filename is",filename,foldername)
+  try{
+      res.sendFile(filePath);
 
+  }
+  catch(error)
+  {
+    res.status(500).send({
+      message:"successfully",
+      data});
+  }
+
+});
 
 //production mode
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
-  //
-
-//api to load pdf
-  app.get('/api/pdf/:foldername/:filename', (req, res) => {
-    const filename = req.params.filename;
-    const foldername = req.params.foldername;
-    
-    const filePath = path.join(__dirname,'PDF',foldername ,filename); // Assuming PDF files are stored in the 'pdfs' directory
-    console.log("here i am server filename is",filename,foldername)
-    try{
-        res.sendFile(filePath);
-
-    }
-    catch(error)
-    {
-      res.status(500).send({
-        message:"successfully",
-        data});
-    }
-  
-  });
-  
+  //  
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname = 'client/build/index.html'));
   })

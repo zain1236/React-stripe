@@ -23,17 +23,6 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 //   res.sendFile(path.join(__dirname+'/client/public/index.html'));
 // })
 
-//production mode
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  
-  // app.get('*', (req, res) => {
-  //   res.sendfile(path.join(__dirname = 'client/build/index.html'));
-  // })
-}
-
-
-
   //api to load pdf
   app.get('/api/pdf/:foldername/:filename', (req, res) => {
     const filename = req.params.filename;
@@ -53,6 +42,19 @@ if(process.env.NODE_ENV === 'production') {
     }
   
   });
+  
+//production mode
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  
+  app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = 'client/build/index.html'));
+  })
+}
+
+
+
+
   
 
 

@@ -56,7 +56,7 @@ class BasicElements extends React.Component {
             </h2>
 
             {/* ???????//////////////////////////////////////////// */}
-            <Row className="mt-6">
+            <Row className="mt-5">
               <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
                 <img className="w-100 pt-0" src={"/img/icon/cover_Grow.png"} />
                 <div className="mb-1 p-3  bg-white rounded minH">

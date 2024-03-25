@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 // reactstrap components
 import { Button, Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
+import "./First.css"
+
 
 class BasicElements extends React.Component {
   render() {
@@ -17,22 +19,22 @@ class BasicElements extends React.Component {
           <Container>
 
             <Row >
-              <Col >
+              <Col>
                 {/* Basic elements */}
-                <h1 className="mb-1">
-                  Take the next step to become financial free
+                <h1 className="mb-1 display-2 display-md-1" id="headline">
+                  Take the next step to become financially free
                 </h1>
                 {/* Buttons */}
-                <h2>
+                <h2 id="bottomline">
                   Simple. Effective. Results.
                 </h2>
-
               </Col>
+
             </Row>
             {/* ???????//////////////////////////////////////////// */}
-            <Row className="mt-6">
-              <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
-                <div className="mb-1 p-3  bg-white rounded minH">
+            <Row className="mt-4">
+              <Col lg="11" md="9" sm="8" xl="4" className="mt-5 " style={{display:"flex",justifyContent:"center"}} >
+                <div className="mb-1 p-3 bg-white rounded minH" style={{width:"90%"}}>
                   <div className="pb-2 pt-2 position-relative  d-flex justify-content-between" style={{ marginTop: "-0.9em", marginLeft: "-16px" }}  >
                     <small className=" " style={{ marginTop: "-2em" }}>
                       Don't miss this opportunity
@@ -107,20 +109,20 @@ class BasicElements extends React.Component {
                     </div>
                   </div>
                   <Link to="/Build_Pay">
-                    <Button  style={{fontSize:"25px", lineHeight:"30px "}} className="Eina01-Regular w-100 pb-2 pt-2 " color="primary" type="button" >
+                    <Button style={{ fontSize: "25px", lineHeight: "30px ", color: "#0e0e0e" }} className="Eina01-Regular w-100 pb-2 pt-2 " color="primary" type="button" >
                       Choose <br />
-                      <span style={{fontSize:"12px "}} >  <i className="fa fa-hourglass-2 text-lighter"></i> Limited-time offer</span>
+                      <span style={{ fontSize: "12px ", color: "#0e0e0e" }} >  <i className="fa fa-hourglass-2 text-lighter"></i> Limited-time offer</span>
                     </Button>
                   </Link>
                 </div>
               </Col>
-              <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
-                <div className="mb-1 p-3  bg-white rounded minH">
+              <Col lg="11" md="9" sm="8" xl="4" className="mt-5  "  style={{display:"flex",justifyContent:"center"}}>
+                <div className="mb-1 p-3  bg-white rounded minH" style={{width:"90%"}}>
                   <div className="pb-2 pt-2 position-relative  d-flex justify-content-between" style={{ marginTop: "-0.9em" }}  >
                     <small className="d-none " >
                       Don't miss this opportunity
                     </small>
-                    <span className=" bg-dark text-lighter pb-0 p-2 rounded mt-1 position-absolute right-0" style={{ top: "-2em" , fontSize: "13px" }}>
+                    <span className=" bg-dark text-lighter pb-0 p-2 rounded mt-1 position-absolute right-0" style={{ top: "-2em", fontSize: "13px" }}>
                       <i className="fa fa-hourglass-2 text-lighter"></i> Limited-time offer
                     </span>
                   </div>
@@ -144,9 +146,9 @@ class BasicElements extends React.Component {
                     </div>
                   </div>
                   <div className="UnderLine1 pb-2 pt-2">
-                   
-                      The Grow package is tailored for businesses seeking to expand and scale their operations on a global scale. Whether you're entering new markets or aiming for increased market share, this package provides strategies and insights to foster sustainable growth.
-                   
+
+                    The Grow package is tailored for businesses seeking to expand and scale their operations on a global scale. Whether you're entering new markets or aiming for increased market share, this package provides strategies and insights to foster sustainable growth.
+
                   </div>
                   <div className="UnderLine1 pb-2 pt-2 ">
                     <div className="d-flex  min_">
@@ -192,16 +194,16 @@ class BasicElements extends React.Component {
                   </div>
                   <Link to="/Grow_Pay">
 
-                    <Button  style={{fontSize:"25px", lineHeight:"30px " }} className="Eina01-Regular w-100 pb-2 pt-2 " onClick={payment} color="primary" type="button">
+                    <Button style={{ fontSize: "25px", lineHeight: "30px ", color: "#0e0e0e" }} className="Eina01-Regular w-100 pb-2 pt-2 " onClick={payment} color="primary" type="button">
                       Choose <br />
-                      <span style={{fontSize:"12px" , marginTop:""}} > <i className="fa fa-hourglass-2 text-lighter"></i> Limited-time offer </span >
+                      <span style={{ fontSize: "12px", marginTop: "", color: "#0e0e0e" }} > <i className="fa fa-hourglass-2 text-lighter" style={{ color: "black" }}></i> Limited-time offer </span >
                     </Button>
                   </Link>
                 </div>
               </Col>
 
-              <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
-                <div className="mb-1 p-3  bg-white rounded minH">
+              <Col lg="11" md="9" sm="8" xl="4" className="mt-5  " style={{display:"flex",justifyContent:"center"}}>
+                <div className="mb-1 p-3  bg-white rounded minH" style={{width:"90%"}}>
                   <div className="position-relative  d-flex justify-content-between pb-3 pt-2 " style={{ marginTop: "-0.9em" }}  >
                     <small className="d-none " style={{ marginTop: "-2em" }}>
                       Don't miss this opportunity
@@ -219,7 +221,7 @@ class BasicElements extends React.Component {
                         <div>
                           <div className="pb-0 pt-3 justify-content-between flex-column">
                             <div></div>
-                            <img className=" rounded" style={{ width: "8em", marginTop:"-2em" }} src={"/img/theme/run.png"} />
+                            <img className=" rounded" style={{ width: "8em", marginTop: "-2em" }} src={"/img/theme/run.png"} />
                           </div>
                         </div>
                         <div>
@@ -278,7 +280,7 @@ class BasicElements extends React.Component {
                     </div>
                   </div>
                   <Link to="/">
-                    <Button  style={{fontSize:"25px"}} className="Eina01-Regular w-100 pb-4 pt-3 " color="light" type="button">
+                    <Button style={{ fontSize: "25px" }} className="Eina01-Regular w-100 pb-4 pt-3 " color="light" type="button">
                       Coming soon
                     </Button>
                   </Link>

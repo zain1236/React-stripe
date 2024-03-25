@@ -11,6 +11,7 @@ class BasicElements extends React.Component {
     try{
       console.log("here I have filename", filename);
       const response = await axios.get(`/api/pdf/build/${filename}`,{responseType: 'blob'});
+      
       // console.log(response.data);      
       const url = window.URL.createObjectURL(new Blob([response.data],{type: 'application/pdf'}))
       window.open(url,'_blank')
@@ -60,7 +61,7 @@ class BasicElements extends React.Component {
 
             {/* ???????//////////////////////////////////////////// */}
             <Row className="mt-6">
-              <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
+              <Col lg="11" md="11" sm="11" xl="4" className="mt-5  " >
                    <img className="w-100 pt-0" src={"/img/icon/front-Build.png"} />
                 <div className="mb-1 p-3  bg-white rounded minH">
 
@@ -79,7 +80,7 @@ class BasicElements extends React.Component {
                   </div>
                 </div>
               </Col>
-              <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
+              <Col lg="11" md="11" sm="11" xl="4" className="mt-5  " >
                 <div className="mb-1 p-3  bg-white rounded minH">
 
                   <div className="  pb-3 pt-5">
@@ -106,7 +107,7 @@ class BasicElements extends React.Component {
                       </Button>
                   </div>
                 </div>
-              </Col> <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
+              </Col> <Col lg="11" md="11" sm="11" xl="4" className="mt-5  " >
                 <div className="mb-1 p-3  bg-white rounded minH">
 
                   <div className="  pb-3 pt-5">
@@ -145,7 +146,7 @@ class BasicElements extends React.Component {
               </Col>
             </Row>
             <Row className="mt-6">
-              <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
+              <Col lg="11" md="11" sm="11" xl="4" className="mt-5  " >
                 <div className="mb-1 p-3  bg-white rounded minH">
 
                   <div className="  pb-3 pt-5">
@@ -172,7 +173,7 @@ class BasicElements extends React.Component {
                   </div>
                 </div>
               </Col>
-              <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
+              <Col lg="11" md="11" sm="11" xl="4" className="mt-5  " >
                 <div className="mb-1 p-3  bg-white rounded minH">
 
                   <div className="  pb-3 pt-5">

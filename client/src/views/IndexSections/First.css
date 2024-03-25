@@ -1,0 +1,15 @@
+#headline {
+    font-size: 2rem; /* Default font size for large screens */
+    
+  }
+  
+  @media (max-width: 768px) {
+    /* Adjust font size for smaller screens */
+    #headline {
+      font-size: 1.5rem !important; 
+    }
+    #bottomline {
+        font-size: 1rem !important; 
+      }
+  }
+  

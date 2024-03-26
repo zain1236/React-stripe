@@ -3,7 +3,7 @@ import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe
 import { loadStripe } from '@stripe/stripe-js';
 import axios from "axios";
 
-const stripePromise = loadStripe("pk_test_51OrwZd2MYeojk7WwLlwx5viX9jLq4i7qGJKPQHXwbQEzfbTJXBVeIdhUocIOSCd4cJqBGiohL8sgHb30QhK14jdx00m1E3fQtw");
+const stripePromise = loadStripe("pk_live_51OmaaTFnjeAcTNL67XmKhEyw45gSOpTkYqm6ZsAqERZaCLXC2Oq68XBVhSSsVqBFvPCz2y5GXOrB1fQXf6AuIoGj00TgBJJ8Ue");
 
 const CheckoutForm = ({ PRICEINFO }) => {
   const [clientSecret, setClientSecret] = useState('');

@@ -109,13 +109,14 @@ class BasicElements extends React.Component {
                     </div>
                   </div>
                   <Link to="/Build_Pay">
-                    <Button style={{ fontSize: "25px", lineHeight: "30px ", color: "#0e0e0e" }} className="Eina01-Regular w-100 pb-2 pt-2 " color="primary" type="button" >
+                    <Button style={{ fontSize: "25px", lineHeight: "30px ", color: "light" }} className="Eina01-Regular w-100 pb-2 pt-2 " color="primary" type="button" >
                       Choose <br />
-                      <span style={{ fontSize: "12px ", color: "#0e0e0e" }} >  <i className="fa fa-hourglass-2 text-lighter"></i> Limited-time offer</span>
+                      <span style={{ fontSize: "12px ", color: "light" }} >  <i className="fa fa-hourglass-2 text-lighter"></i> Limited-time offer</span>
                     </Button>
                   </Link>
                 </div>
               </Col>
+
               <Col lg="11" md="9" sm="8" xl="4" className="mt-5  "  style={{display:"flex",justifyContent:"center"}}>
                 <div className="mb-1 p-3  bg-white rounded minH" style={{width:"90%"}}>
                   <div className="pb-2 pt-2 position-relative  d-flex justify-content-between" style={{ marginTop: "-0.9em" }}  >
@@ -194,9 +195,9 @@ class BasicElements extends React.Component {
                   </div>
                   <Link to="/Grow_Pay">
 
-                    <Button style={{ fontSize: "25px", lineHeight: "30px ", color: "#0e0e0e" }} className="Eina01-Regular w-100 pb-2 pt-2 " onClick={payment} color="primary" type="button">
+                    <Button style={{ fontSize: "25px", lineHeight: "30px ", color: "light" }} className="Eina01-Regular w-100 pb-2 pt-2 " onClick={payment} color="primary" type="button">
                       Choose <br />
-                      <span style={{ fontSize: "12px", marginTop: "", color: "#0e0e0e" }} > <i className="fa fa-hourglass-2 text-lighter" style={{ color: "black" }}></i> Limited-time offer </span >
+                      <span style={{ fontSize: "12px", marginTop: "", color: "#light" }} > <i className="fa fa-hourglass-2 text-lighter" style={{ color: "black" }}></i> Limited-time offer </span >
                     </Button>
                   </Link>
                 </div>

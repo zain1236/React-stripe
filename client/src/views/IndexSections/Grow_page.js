@@ -58,7 +58,7 @@ class BasicElements extends React.Component {
             {/* ???????//////////////////////////////////////////// */}
             <Row className="mt-5">
               <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
-                <img className="w-100 pt-0" src={"/img/icon/cover_Grow.png"} />
+                <img className="w-100 pt-0" src={"/img/icon/Grow_Cover.png"} />
                 <div className="mb-1 p-3  bg-white rounded minH">
                   <div className="text-center pt-2">
                       <Button onClick={() => this.fetchPDF('Grow.pdf')} className=" rounded w-30 mr-5 text-center" color="dark" type="button">
@@ -71,6 +71,7 @@ class BasicElements extends React.Component {
                   </div>
                 </div>
               </Col>
+              
               <Col lg="12" md="12" sm="12" xl="4" className="mt-5  " >
                 <div className="mb-1 p-3  bg-white rounded minH">
 

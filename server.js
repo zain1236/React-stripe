@@ -1,5 +1,5 @@
 // This is your test secret API key.
-const stripe = require('stripe')('sk_test_51OrwZd2MYeojk7WwFskOWCv2QFOgWZ5tTStlPZmf24lggRq1h8plbkaXzmSBTTftr1sIEbUtoJJXfqzTRzOw8Hgo00pL6BOB8K');
+const stripe = require('stripe')('pk_live_51OmaaTFnjeAcTNL67XmKhEyw45gSOpTkYqm6ZsAqERZaCLXC2Oq68XBVhSSsVqBFvPCz2y5GXOrB1fQXf6AuIoGj00TgBJJ8Ue');
 const path = require("path");
 const express = require('express');
 const app = express();
@@ -10,7 +10,7 @@ const cors = require("cors")
 app.use(express.json());
 app.use(cors());
 
-const YOUR_DOMAIN = 'https://stripe-reactapp-6f7eb0d918b3.herokuapp.com';
+const YOUR_DOMAIN = 'https://cartetheblanche.com';
 
 
 const rootDir = path.join( __dirname);

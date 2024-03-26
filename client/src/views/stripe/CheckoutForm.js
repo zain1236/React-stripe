@@ -8,10 +8,10 @@ import axios from "axios";
 const CheckoutForm = ({ PRICEINFO }) => {
   const [clientSecret, setClientSecret] = useState('');
 
-  var PRICE = "";
- 
+
 
   useEffect(() => {
+    var PRICE = "";
     switch (PRICEINFO) {
       case "build":
         PRICE = "price_1OygbRFnjeAcTNL6WRYhDkLJ";
@@ -21,8 +21,11 @@ const CheckoutForm = ({ PRICEINFO }) => {
 
         break;
       case "exit":
-        PRICE = "price_1OsAQq2MYeojk7WwGR7v6lyr";
+        PRICE = "price_1OsAQq2MYeojk7WwGR7v6lyr";      
+        break;
 
+      default:
+        PRICE = "price_1OygbRFnjeAcTNL6WRYhDkLJ";
         break;
     }
 
@@ -53,7 +56,7 @@ const CheckoutForm = ({ PRICEINFO }) => {
     //     // setClientSecret(data.clientSecret)
     //     console.log(data);
     //   });
-  }, []);
+  }, [PRICEINFO]);
 
   return (
     <div id="checkout">

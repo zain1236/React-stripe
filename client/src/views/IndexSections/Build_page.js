@@ -11,7 +11,7 @@ class BasicElements extends React.Component {
     try{
       console.log("here I have filename", filename);
       const response = await axios.get(`/api/pdf/build/${filename}`,{responseType: 'blob'});
-      
+
       // console.log(response.data);      
       const url = window.URL.createObjectURL(new Blob([response.data],{type: 'application/pdf'}))
       window.open(url,'_blank')
@@ -62,7 +62,7 @@ class BasicElements extends React.Component {
             {/* ???????//////////////////////////////////////////// */}
             <Row className="mt-6">
               <Col lg="11" md="11" sm="11" xl="4" className="mt-5  " >
-                   <img className="w-100 pt-0" src={"/img/icon/front-Build.png"} />
+                   <img alt="Build.png" className="w-100 pt-0" src={"/img/icon/front-Build.png"} />
                 <div className="mb-1 p-3  bg-white rounded minH">
 
               
@@ -93,7 +93,7 @@ class BasicElements extends React.Component {
                   </div>
 
                   <div className="UnderLine1 pb-7 pt-5 text-center" >
-                    <img style={{ width: "25%" }} src={"/img/icon/lamp.png"} />
+                    <img alt="lamp.png" style={{ width: "25%" }} src={"/img/icon/lamp.png"} />
 
                   </div>
                   <div className="text-center pt-3 pb-1">
@@ -120,7 +120,7 @@ class BasicElements extends React.Component {
                   </div>
 
                   <div className="UnderLine1 pb-7 pt-5 text-center" >
-                  <img style={{ width: "33%" }} src={"/img/icon/file.png"} />
+                  <img alt="file.png" style={{ width: "33%" }} src={"/img/icon/file.png"} />
 
 
                   </div>
@@ -159,7 +159,7 @@ class BasicElements extends React.Component {
                   </div>
 
                   <div className="UnderLine1 pb-7 pt-5 text-center" >
-                    <img style={{ width: "33%" }} src={"/img/icon/edit.png"} />
+                    <img alt="edit.png" style={{ width: "33%" }} src={"/img/icon/edit.png"} />
 
                   </div>
                   <div className="text-center pt-2">
@@ -186,7 +186,7 @@ class BasicElements extends React.Component {
                   </div>
 
                   <div className="UnderLine1 pb-7 pt-5 text-center" >
-                    <img style={{ width: "33%" }} src={"/img/icon/calender.png"} />
+                    <img alt="calendar.png" style={{ width: "33%" }} src={"/img/icon/calender.png"} />
 
                   </div>
                   <div className="text-center pt-2">
@@ -212,7 +212,7 @@ class BasicElements extends React.Component {
                   </div>
 
                   <div className="UnderLine1 pb-7 pt-5 text-center" >
-                    <img style={{ width: "33%" }} src={"/img/icon/tool.png"} />
+                    <img alt="tool.png" style={{ width: "33%" }} src={"/img/icon/tool.png"} />
 
                   </div>
                   <div className="text-center pt-2">

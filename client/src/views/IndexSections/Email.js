@@ -5,8 +5,6 @@ import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import {
   FormGroup,
   Input,
-  InputGroupAddon,
-  InputGroupText,
   InputGroup,
   Container,
   Row,

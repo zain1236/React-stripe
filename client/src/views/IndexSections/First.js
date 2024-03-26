@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // reactstrap components
 import { Button, Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -222,11 +222,11 @@ class BasicElements extends React.Component {
                         <div>
                           <div className="pb-0 pt-3 justify-content-between flex-column">
                             <div></div>
-                            <img className=" rounded" style={{ width: "8em", marginTop: "-2em" }} src={"/img/theme/run.png"} />
+                            <img alt="rounded"className=" rounded" style={{ width: "8em", marginTop: "-2em" }} src={"/img/theme/run.png"} />
                           </div>
                         </div>
                         <div>
-                          <h3 className="text-right w-100 mt-4 mb-0  text-sky text-across text-align-left"></h3>
+                          {/* <h3 className="text-right w-100 mt-4 mb-0  text-sky text-across text-align-left"></h3> */}
                           <h3 className="mb-0 text-sky ">$8950</h3>
                         </div>
                       </div>

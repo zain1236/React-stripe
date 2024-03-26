@@ -1,5 +1,9 @@
 // This is your test secret API key.
-const stripe = require('stripe')('pk_live_51OmaaTFnjeAcTNL67XmKhEyw45gSOpTkYqm6ZsAqERZaCLXC2Oq68XBVhSSsVqBFvPCz2y5GXOrB1fQXf6AuIoGj00TgBJJ8Ue');
+
+// const stripe = require('stripe')('sk_test_51OrwZd2MYeojk7WwFskOWCv2QFOgWZ5tTStlPZmf24lggRq1h8plbkaXzmSBTTftr1sIEbUtoJJXfqzTRzOw8Hgo00pL6BOB8K');
+const stripe = require('stripe')('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');
+
+
 const path = require("path");
 const express = require('express');
 const app = express();
@@ -75,7 +79,7 @@ app.post('/create-checkout-session', async (req, res) => {
     ],
     mode: 'payment',
     return_url: `${YOUR_DOMAIN}/${TAGET}`,
-  });
+  });  
 
   res.send({clientSecret: session.client_secret});
 });

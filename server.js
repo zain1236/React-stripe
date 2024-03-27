@@ -20,7 +20,7 @@ const YOUR_DOMAIN = 'https://cartetheblanche.com';
 const rootDir = path.join( __dirname);
 
 //Static file declaration
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client')));
 
 
 
@@ -45,18 +45,18 @@ app.get('/api/pdf/:foldername/:filename', (req, res) => {
 
 //production mode
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  app.use(express.static(path.join(__dirname, 'client')));
   
   app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname='client/build/index.html'));
+    res.sendfile(path.join(__dirname='client/index.html'));
   })
 }
 
 
-//build mode
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/public/index.html'));
-})
+// //build mode
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname+'/client/public/index.html'));
+// })
 
  
   
